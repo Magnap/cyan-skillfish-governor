@@ -7,6 +7,8 @@ this version set voltage/frequency using directly the smu api thanks to the work
 
 Takes a TOML config file path as its only argument.
 Keys are:
+* `gpu-metric-fix` : boolean default true fix gpu usage metrics
+* `gpu-usage` : 'process' or 'busy-flag' default 'busy-flag' choose the method to get the gpu usage sample busy-flag or total time from process
 * `timing`
   * `intervals`: in µs
     * `sample`: how often to sample GPU load
