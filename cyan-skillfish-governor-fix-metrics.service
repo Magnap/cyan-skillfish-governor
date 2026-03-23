@@ -2,7 +2,7 @@
 Description=Cyan Skillfish GPU Governor
 Conflicts=cyan-skillfish-governor.service cyan-skillfish-governor-tt.service oberon-governor.service
 [Service]
-ExecStart=/usr/bin/cyan-skillfish-governor-smu /etc/cyan-skillfish-governor-smu/config.toml
+ExecStart=/usr/bin/cyan-skillfish-governor-fix-metrics /etc/cyan-skillfish-governor-fix-metrics/config.toml
 Restart=on-failure
 RestartSec=5
 

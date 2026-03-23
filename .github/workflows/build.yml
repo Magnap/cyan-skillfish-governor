@@ -38,11 +38,11 @@ jobs:
         BRANCH_NAME=$(echo "${{ github.ref_name }}" | sed 's/\//-/g')
         VERSION="dev-${BRANCH_NAME}-${SHORT_SHA}"
         
-        PKG_NAME="cyan-skillfish-governor-smu-${VERSION}-x86_64-linux"
+        PKG_NAME="cyan-skillfish-governor-fix-metrics-${VERSION}-x86_64-linux"
         mkdir -p "${PKG_NAME}"
         
         # Copy files
-        cp target/release/cyan-skillfish-governor-smu "${PKG_NAME}/"
+        cp target/release/cyan-skillfish-governor-fix-metrics "${PKG_NAME}/"
         cp config.toml "${PKG_NAME}/"
         cp README.md "${PKG_NAME}/" || true
         
@@ -53,7 +53,7 @@ jobs:
           chmod +x "${PKG_NAME}/uninstall.sh" 2>/dev/null || true
         fi
         
-        chmod +x "${PKG_NAME}/cyan-skillfish-governor-smu"
+        chmod +x "${PKG_NAME}/cyan-skillfish-governor-fix-metrics"
         
         # Create tarball
         tar -czf "${PKG_NAME}.tar.gz" "${PKG_NAME}"

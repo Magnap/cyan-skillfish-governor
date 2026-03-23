@@ -1,12 +1,12 @@
 # See the documentation for more information:
 # https://packit.dev/docs/configuration/
 
-specfile_path: cyan-skillfish-governor-smu.spec
+specfile_path: cyan-skillfish-governor-fix-metrics.spec
 
 # name in upstream package repository or registry (e.g. in PyPI)
-upstream_package_name: cyan-skillfish-governor-smu
+upstream_package_name: cyan-skillfish-governor-fix-metrics
 # downstream (Fedora) RPM package name
-downstream_package_name: cyan-skillfish-governor-smu
+downstream_package_name: cyan-skillfish-governor-fix-metrics
 
 
 jobs:

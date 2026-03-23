@@ -17,10 +17,10 @@ fi
 echo -e "${GREEN}Installing Cyan Skillfish Governor...${NC}"
 
 # Installation directory
-INSTALL_DIR="/etc/cyan-skillfish-governor-smu"
-BIN_PATH="$INSTALL_DIR/cyan-skillfish-governor-smu"
+INSTALL_DIR="/etc/cyan-skillfish-governor-fix-metrics"
+BIN_PATH="$INSTALL_DIR/cyan-skillfish-governor-fix-metrics"
 CONFIG_PATH="$INSTALL_DIR/config.toml"
-SERVICE_FILE="/etc/systemd/system/cyan-skillfish-governor-smu.service"
+SERVICE_FILE="/etc/systemd/system/cyan-skillfish-governor-fix-metrics.service"
 
 # Create installation directory
 echo "Creating installation directory..."
@@ -28,7 +28,7 @@ mkdir -p "$INSTALL_DIR"
 
 # Copy binary
 echo "Installing binary..."
-cp cyan-skillfish-governor-smu "$BIN_PATH"
+cp cyan-skillfish-governor-fix-metrics "$BIN_PATH"
 chmod +x "$BIN_PATH"
 
 # Copy config if it doesn't exist
@@ -64,15 +64,15 @@ systemctl daemon-reload
 echo -e "${GREEN}Installation complete!${NC}"
 echo ""
 echo "To start the service:"
-echo "  sudo systemctl start cyan-skillfish-governor-smu"
+echo "  sudo systemctl start cyan-skillfish-governor-fix-metrics"
 echo ""
 echo "To enable at boot:"
-echo "  sudo systemctl enable cyan-skillfish-governor-smu"
+echo "  sudo systemctl enable cyan-skillfish-governor-fix-metrics"
 echo ""
 echo "To check status:"
-echo "  sudo systemctl status cyan-skillfish-governor-smu"
+echo "  sudo systemctl status cyan-skillfish-governor-fix-metrics"
 echo ""
 echo "To view logs:"
-echo "  sudo journalctl -u cyan-skillfish-governor-smu -f"
+echo "  sudo journalctl -u cyan-skillfish-governor-fix-metrics -f"
 echo ""
 echo -e "${YELLOW}Note: Edit $CONFIG_PATH to customize settings${NC}"
