@@ -52,6 +52,13 @@
         });
     in
       perSystem // {
-        nixosModules.default = import ./nixos-module.nix;
+        # Wrapper module that defaults `package` to this flake's package, so
+        # consumers only need `services.cyan-skillfish-governor.enable = true;`
+        # (no `_module.args.self` plumbing required).
+        nixosModules.default = { pkgs, lib, ... }: {
+          imports = [ ./nixos-module.nix ];
+          services.cyan-skillfish-governor.package =
+            lib.mkDefault self.packages.${pkgs.system}.default;
+        };
       };
 }
