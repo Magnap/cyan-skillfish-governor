@@ -28,3 +28,42 @@ Keys are:
   * `voltage`: GPU supply voltage in mV
 
 See also `default-config.toml`.
+
+## NixOS
+
+This fork ships a flake with a package and a NixOS module. Add the input and
+import the module:
+
+```nix
+{
+  inputs.cyan-skillfish-governor.url = "github:ktaf/cyan-skillfish-governor";
+
+  # in your nixosSystem:
+  # modules = [ inputs.cyan-skillfish-governor.nixosModules.default ];
+}
+```
+
+Then enable the service. All configuration keys above are available under
+`settings` and merge with the upstream defaults key by key, so you only set
+what you want to change:
+
+```nix
+services.cyan-skillfish-governor = {
+  enable = true;
+
+  # optional — defaults shown in default-config.toml
+  settings = {
+    load-target = {
+      upper = 0.9;
+      lower = 0.6;
+    };
+    safe-points = [
+      { frequency = 350; voltage = 700; }
+      { frequency = 2000; voltage = 1000; }
+    ];
+  };
+};
+```
+
+The rendered TOML is written to `/etc/cyan-skillfish-governor/config.toml`,
+and the service restarts automatically when it changes on rebuild.
