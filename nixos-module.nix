@@ -11,7 +11,7 @@ in
     package = lib.mkOption {
       type = lib.types.package;
       description = "The cyan-skillfish-governor package to use.";
-      defaultText = lib.literalExpression "cyan-skillfish-governor.packages.\${pkgs.system}.default";
+      defaultText = lib.literalExpression "cyan-skillfish-governor.packages.\${pkgs.stdenv.hostPlatform.system}.default";
     };
 
     settings = lib.mkOption {

@@ -58,7 +58,7 @@
         nixosModules.default = { pkgs, lib, ... }: {
           imports = [ ./nixos-module.nix ];
           services.cyan-skillfish-governor.package =
-            lib.mkDefault self.packages.${pkgs.system}.default;
+            lib.mkDefault self.packages.${pkgs.stdenv.hostPlatform.system}.default;
         };
       };
 }
